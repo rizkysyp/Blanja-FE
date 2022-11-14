@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "./Product-Sales.module.css";
+import NavbarGuest from "../../Component/Header/Navbar";
+import Sidebar from "../../Component/Header/Sidebar";
 export default function Product() {
   const [data, setData] = useState([]);
   const [photo, setPhoto] = useState(null);
@@ -64,13 +66,18 @@ export default function Product() {
 
   return (
     <div>
-      <div className="container">
+      <div>
+        <NavbarGuest />
+      </div>
+      <div className="container mt-3">
         {/* post data */}
         <form
           onSubmit={postForm}
           className="container col-12 row flew-row justfity-content-center"
         >
-          <div className="col-4">as</div>
+          <div className="col-4">
+            <Sidebar />
+          </div>
           <div className="col-8">
             <div className="card mb-4 " style={{ width: "40rem" }}>
               <div className="card-body">

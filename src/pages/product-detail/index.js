@@ -33,7 +33,7 @@ import axios from "axios";
 export default function Profile() {
   const [data, setData] = useState([]);
   //   const [startDate, setStartDate] = useState(new Date());
-  let users = "http://localhost:3060/products/144";
+  let users = "http://localhost:3060/products/110";
   useEffect(() => {
     axios
       .get(users)

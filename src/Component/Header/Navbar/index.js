@@ -8,7 +8,7 @@ import Cart from "../../../icon/cart.png";
 const NavbarGuest = () => {
   return (
     <div>
-      <div className="container-fluid shadow-lg">
+      <div className="container-fluid shadow-lg bg-white">
         <div className="container py-3">
           <div className="row align-items-center">
             <div className="col-2 d-flex align-items-center">

@@ -29,8 +29,8 @@ function App() {
           <Link to="/my-bag"> My Bag</Link>
         </nav>
         <Routes>
-          <Route path="/" element={<Navigate to="/login" />} replace="true" />
-          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Navigate to="/login" />} />
+          <Route path="/home" element={<Home />} replace="true" />
           <Route path="/login" element={<Login />} />
           <Route path="/register-seller" element={<RegisterSeller />} />
           <Route path="/my-product" element={<MyProduct />} />

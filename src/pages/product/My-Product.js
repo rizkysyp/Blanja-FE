@@ -13,7 +13,6 @@ import {
 import axios from "axios";
 import profile from "../../image/kris.png";
 import "bootstrap/dist/css/bootstrap.min.css";
-import style from "./style.module.css";
 function MyProducts() {
   const [Hasil, setHasil] = useState([]);
 
@@ -43,69 +42,63 @@ function MyProducts() {
         <NavbarGuest />
       </header>
 
-      <aside className="col-3">
-        <div className="bg-white">asasas</div>
-      </aside>
+      <aside className="col-3 h-100 bg-white row d-flex">as</aside>
       <main>
-        <Container className="container mt-4 col-12 ">
-          <Row>
-            <Container className="col-9 offset-3">
-              <Card className="">
-                <Card className="card-body">
-                  <h5>
-                    <b>My Product</b>
-                  </h5>
-                  <h6>All Items</h6>
-                  <hr></hr>
+        <div className="container col-9">
+          <Container className="container col-9 offset-3">
+            <Card className="card-body">
+              <h5>
+                <b>My Product</b>
+              </h5>
+              <h6>All Items</h6>
+              <hr></hr>
 
-                  <Card>
-                    <Table className="mb-1">
-                      <thead className="table-light">
-                        <tr>
-                          <th>No</th>
-                          <th>Name Producs</th>
-                          <th>Price</th>
-                          <th>Category Name</th>
-                          <th>Stock</th>
-                          <th></th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {Hasil.map((hasil, index) => (
-                          <tr key={hasil.id}>
-                            <td>{index + 1}</td>
-                            <td>{hasil.name}</td>
-                            <td>{hasil.price}</td>
-                            <td>{hasil.category_name}</td>
-                            <td>{hasil.stock}</td>
-                            <td>
-                              <Button
-                                as={Link}
-                                to={`/my-product/${hasil.id}`}
-                                variant="primary"
-                                size="sm"
-                                className="me-2"
-                              >
-                                EDIT
-                              </Button>
-                              <Button
-                                onClick={() => deleteData(hasil.id)}
-                                variant="danger"
-                                size="md"
-                              >
-                                Delete
-                              </Button>
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </Table>
-                  </Card>
-                </Card>
+              <Card>
+                <Table className="mb-1">
+                  <thead className="table-light">
+                    <tr>
+                      <th>No</th>
+                      <th>Name Producs</th>
+                      <th>Price</th>
+                      <th>Category Name</th>
+                      <th>Stock</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {Hasil.map((hasil, index) => (
+                      <tr key={hasil.id}>
+                        <td>{index + 1}</td>
+                        <td>{hasil.name}</td>
+                        <td>{hasil.price}</td>
+                        <td>{hasil.category_name}</td>
+                        <td>{hasil.stock}</td>
+                        <td>
+                          <Button
+                            as={Link}
+                            to={`/my-product/${hasil.id}`}
+                            variant="primary"
+                            size="sm"
+                            className="me-2"
+                          >
+                            EDIT
+                          </Button>
+                          <Button
+                            onClick={() => deleteData(hasil.id)}
+                            variant="danger"
+                            size="md"
+                          >
+                            Delete
+                          </Button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </Table>
               </Card>
-            </Container>
-          </Row>
-        </Container>
+            </Card>
+          </Container>
+        </div>
       </main>
     </div>
   );

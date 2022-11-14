@@ -11,6 +11,7 @@ import {
 } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import NavbarGuest from "../../Component/Header/Navbar";
 
 function EditProduct() {
   //bikin state
@@ -82,64 +83,69 @@ function EditProduct() {
   };
 
   return (
-    <Container>
-      <Row>
-        <Card>
-          <Card.Body>
-            {validation.errors && (
-              <Alert variant="danger">
-                <ul>
-                  {validation.errors.map((error, index) => (
-                    <li key={index}>{`${error.param} : ${error.msg}`}</li>
-                  ))}
-                </ul>
-              </Alert>
-            )}
-            <Form onSubmit={updateData}>
-              <Form.Group className="mb-3" controlId="name">
-                <Form.Label>Name</Form.Label>
-                <Form.Control
-                  type="text"
-                  value={name}
-                  onChange={(hasil) => setName(hasil.target.value)}
-                  placeholder="Masukkan Title"
-                />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="priceStock">
-                <Form.Label>Price</Form.Label>
-                <Form.Control
-                  type="number"
-                  value={price}
-                  onChange={(hasil) => setPrice(hasil.target.value)}
-                  placeholder="Masukan Harga"
-                />
-                <Form.Label>Stock</Form.Label>
-                <Form.Control
-                  type="number"
-                  value={stock}
-                  onChange={(hasil) => setStock(hasil.target.value)}
-                  placeholder="Masukan Harga"
-                />
-              </Form.Group>
+    <div>
+      <div>
+        <NavbarGuest />
+      </div>
+      <Container>
+        <Row>
+          <Card>
+            <Card.Body>
+              {validation.errors && (
+                <Alert variant="danger">
+                  <ul>
+                    {validation.errors.map((error, index) => (
+                      <li key={index}>{`${error.param} : ${error.msg}`}</li>
+                    ))}
+                  </ul>
+                </Alert>
+              )}
+              <Form onSubmit={updateData}>
+                <Form.Group className="mb-3" controlId="name">
+                  <Form.Label>Name</Form.Label>
+                  <Form.Control
+                    type="text"
+                    value={name}
+                    onChange={(hasil) => setName(hasil.target.value)}
+                    placeholder="Masukkan Title"
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="priceStock">
+                  <Form.Label>Price</Form.Label>
+                  <Form.Control
+                    type="number"
+                    value={price}
+                    onChange={(hasil) => setPrice(hasil.target.value)}
+                    placeholder="Masukan Harga"
+                  />
+                  <Form.Label>Stock</Form.Label>
+                  <Form.Control
+                    type="number"
+                    value={stock}
+                    onChange={(hasil) => setStock(hasil.target.value)}
+                    placeholder="Masukan Harga"
+                  />
+                </Form.Group>
 
-              <Form.Group className="mb-3" controlId="category">
-                <Form.Label>Category</Form.Label>
-                <Form.Control
-                  type="number"
-                  value={category_id}
-                  onChange={(hasil) => setCategoryID(hasil.target.value)}
-                  placeholder="Masukkan Title"
-                />
-              </Form.Group>
+                <Form.Group className="mb-3" controlId="category">
+                  <Form.Label>Category</Form.Label>
+                  <Form.Control
+                    type="number"
+                    value={category_id}
+                    onChange={(hasil) => setCategoryID(hasil.target.value)}
+                    placeholder="Masukkan Title"
+                  />
+                </Form.Group>
 
-              <Button variant="primary" type="submit">
-                UPDATE
-              </Button>
-            </Form>
-          </Card.Body>
-        </Card>
-      </Row>
-    </Container>
+                <Button variant="primary" type="submit">
+                  UPDATE
+                </Button>
+              </Form>
+            </Card.Body>
+          </Card>
+        </Row>
+      </Container>
+    </div>
   );
 }
 
