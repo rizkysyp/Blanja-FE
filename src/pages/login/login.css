@@ -1,0 +1,50 @@
+.header-form {
+  padding: 0 15px 15px 15px;
+  text-align: center;
+}
+.title-login {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+.form-login {
+  width: 100%;
+  max-width: 400px;
+  padding: 5px;
+  margin-top: 50px;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn.btn-customer {
+  background-color: #eb0000;
+  border-radius: 5px;
+  margin-right: 2.5px;
+}
+
+.btn.btn-seller {
+  background-color: #fafafa;
+  color: gray;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+.btn-login {
+  background-color: #db3022;
+  width: 100%;
+  border-radius: 20px;
+  color: #ffffff;
+  padding: 15px;
+  font-weight: bolder;
+  margin-top: 30px;
+}
+.form-login {
+  width: 100%;
+  max-width: 400px;
+  padding: 5px;
+  margin-top: 50px;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
+}

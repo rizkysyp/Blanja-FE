@@ -1,23 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Home from "./pages/Home";
+import Login from "./pages/login/Login";
+import RegisterSeller from "./pages/register/Seller";
+import MyProduct from "./pages/product/My-Product";
+import Profile from "./pages/profile";
+import Product from "./pages/product-sales/";
+import RegisterCust from "./pages/register/customer";
+import EditProduct from "./pages/product/Edit";
+import ProductDetail from "./pages/product-detail";
+import MyBag from "./pages/Bag/";
+import { BrowserRouter, Route, Link, Routes, Navigate } from "react-router-dom";
+import "react-datepicker/dist/react-datepicker.css";
 
 function App() {
+  const [title, setTitle] = useState("test");
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <header className="App-header">{title}</header>
+      <BrowserRouter>
+        <nav>
+          <Link to="/">Home</Link>
+          <Link to="/login"> Login</Link>
+          <Link to="/my-product"> My Products</Link>
+          {/* <Link to="/profile">Profile</Link> */}
+          <Link to="/product-detail"> Product Detail</Link>
+          <Link to="/insert-product"> Insert Product</Link>
+          <Link to="/register-seller"> Register Seller</Link>
+          <Link to="/my-bag"> My Bag</Link>
+        </nav>
+        <Routes>
+          <Route path="/" element={<Navigate to="/login" />} replace="true" />
+          <Route path="/home" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register-seller" element={<RegisterSeller />} />
+          <Route path="/my-product" element={<MyProduct />} />
+          <Route path="/insert-product" element={<Product />} />
+          <Route path="/register-cust" element={<RegisterCust />} />
+          {/* <Route path="/profile" element={<Profile />} /> */}
+          <Route path="/product-detail" element={<ProductDetail />} />
+          <Route path="/my-product/:id" element={<EditProduct />} />
+          <Route path="/my-bag" element={<MyBag />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

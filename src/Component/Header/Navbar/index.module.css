@@ -1,0 +1,35 @@
+.buttonNav {
+  width: 30px;
+  height: 15px;
+  background-color: #db3022;
+  border-radius: 40px;
+}
+
+.text {
+  color: #db3022;
+  font-size: 24px;
+  margin-left: 5px;
+}
+
+.buttonLogin {
+  border-radius: 25px;
+  background-color: #db3022;
+  margin-left: 8px;
+  width: 100px;
+  height: 36px;
+  color: white;
+}
+
+.buttonSignup {
+  border-radius: 25px;
+  background-color: transparent;
+  margin-left: 8px;
+  width: 100px;
+  height: 36px;
+}
+
+.cart {
+  width: 24px;
+  height: 24px;
+  margin-right: 40px;
+}
