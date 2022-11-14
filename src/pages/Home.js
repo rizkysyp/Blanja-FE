@@ -32,11 +32,35 @@ export default function Home() {
       </section>
       <div>buat carosel</div>
       <section>
-        <div className="container mt-">
+        <div className="container mt-3">
           <div>
             <h3>New</h3>
           </div>
           <div className="row bg-light mx-auto">
+            {data.map((item) => (
+              <div
+                className="card shadow-sm"
+                style={{ width: "208px", marginLeft: "13px" }}
+              >
+                {/* style={{ width: "10rem" }}> */}
+                <div className="d-flex justify-content-center">
+                  <img className={style.photo} src={item.photo}></img>
+                </div>
+                <p className="fs-2">{item.name}</p>
+                <p className="text-danger fs-3">Rp. {item.price}</p>
+                <p className="fs-6">(10)</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div className="container mt-5">
+          <div>
+            <h3>Popular</h3>
+          </div>
+          <div className="row bg-light mx-auto mt-5">
             {data.map((item) => (
               <div
                 className="card shadow-sm"
