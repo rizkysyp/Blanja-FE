@@ -14,6 +14,9 @@ import axios from "axios";
 import profile from "../../image/kris.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 function MyProducts() {
+  const [search, setSearch] = useState("");
+  const [sortBy, setSortBy] = useState("Price");
+  const [sort, setSort] = useState("asc");
   const [Hasil, setHasil] = useState([]);
 
   useEffect(() => {
@@ -31,12 +34,12 @@ function MyProducts() {
   // };
 
   const fetchData = async () => {
-    const response = await axios.get("http://localhost:3060/products");
-
-    const data = await response.data.data;
-    console.log(data, "hasil");
-
+    const response = await axios.get(
+      `http://localhost:3060/products/sort?search=${search}&sortby=name&sort=desc`
+    );
+    const data = await response.data.result;
     setHasil(data);
+    console.log(Hasil, "data");
   };
   const deleteData = async (id) => {
     //sending
@@ -45,6 +48,10 @@ function MyProducts() {
     //panggil function "fetchData"
     fetchData();
   };
+
+  useEffect(() => {
+    fetchData();
+  }, [search, sortBy, sort]);
   return (
     <div>
       <header>
@@ -60,6 +67,15 @@ function MyProducts() {
                 <b>My Product</b>
               </h5>
               <h6>All Items</h6>
+              <div className="search ms-2">
+                <input
+                  type="text"
+                  className="form-control"
+                  name="search"
+                  onChange={(e) => setSearch(e.target.value.toLowerCase())}
+                  placeholder="search"
+                />
+              </div>
               <hr></hr>
 
               <Card>
@@ -80,7 +96,7 @@ function MyProducts() {
                         <td>{index + 1}</td>
                         <td>{hasil.name}</td>
                         <td>{hasil.price}</td>
-                        <td>{hasil.category_name}</td>
+                        <td>{hasil.category}</td>
                         <td>{hasil.stock}</td>
                         <td>
                           <Button

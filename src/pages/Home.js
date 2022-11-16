@@ -8,7 +8,7 @@ import Carousel from "../Component/Carosel";
 
 export default function Home() {
   const [data, setData] = useState([]);
-  const product = "http://localhost:3060/products";
+  const product = "http://localhost:3060/products/";
 
   useEffect(() => {
     const getdata = async () => {
