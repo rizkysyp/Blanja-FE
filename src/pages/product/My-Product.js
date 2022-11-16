@@ -21,6 +21,15 @@ function MyProducts() {
     fetchData();
   }, []);
 
+  // const fetchData = async () => {
+  //   const response = await axios.get("http://localhost:3060/products");
+
+  //   const data = await response.data.data;
+  //   console.log(data, "hasil");
+
+  //   setHasil(data);
+  // };
+
   const fetchData = async () => {
     const response = await axios.get("http://localhost:3060/products");
 

@@ -29,14 +29,26 @@
 // }
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { getDefaultLocale } from "react-datepicker";
 
 export default function Profile() {
   const [data, setData] = useState([]);
   //   const [startDate, setStartDate] = useState(new Date());
-  let users = "http://localhost:3060/products/110";
+  let users = `http://localhost:3060/products/158`;
+
   useEffect(() => {
+    getData();
+  }, []);
+
+  const getData = () => {
+    let token = localStorage.getItem("token");
+    console.log("my token", token);
     axios
-      .get(users)
+      .get(users, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .then((res) => {
         console.log("get data success");
         setData(res.data.data);
@@ -47,7 +59,21 @@ export default function Profile() {
         console.log("get data fail");
         console.log(err);
       });
-  }, []);
+  };
+  // useEffect(() => {
+  //   axios
+  //     .get(users)
+  //     .then((res) => {
+  //       console.log("get data success");
+  //       setData(res.data.data);
+  //       console.log(res.data, "data products");
+  //       console.log(res.data.data[0].name, "res data");
+  //     })
+  //     .catch((err) => {
+  //       console.log("get data fail");
+  //       console.log(err);
+  //     });
+  // }, []);
 
   return (
     <div>

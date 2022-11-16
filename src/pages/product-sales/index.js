@@ -3,6 +3,11 @@ import axios from "axios";
 import styles from "./Product-Sales.module.css";
 import NavbarGuest from "../../Component/Header/Navbar";
 import Sidebar from "../../Component/Header/Sidebar";
+
+// Auth
+
+
+//End Of Auth
 export default function Product() {
   const [data, setData] = useState([]);
   const [photo, setPhoto] = useState(null);
