@@ -6,7 +6,6 @@ import Sidebar from "../../Component/Header/Sidebar";
 
 // Auth
 
-
 //End Of Auth
 export default function Product() {
   const [data, setData] = useState([]);
@@ -18,20 +17,20 @@ export default function Product() {
     category_id: "1",
   });
 
-  let users = "http://localhost:3060/products/";
-  useEffect(() => {
-    axios
-      .get(users)
-      .then((res) => {
-        console.log("get data success");
-        console.log(res.data.data);
-        res.data && setData(res.data.data);
-      })
-      .catch((err) => {
-        console.log("get data fail");
-        console.log(err);
-      });
-  }, []);
+  // let users = "http://localhost:3060/products/";
+  // useEffect(() => {
+  //   axios
+  //     .get(users)
+  //     .then((res) => {
+  //       console.log("get data success");
+  //       console.log(res.data.data);
+  //       res.data && setData(res.data.data);
+  //     })
+  //     .catch((err) => {
+  //       console.log("get data fail");
+  //       console.log(err);
+  //     });
+  // }, []);
   const postForm = (e) => {
     e.preventDefault();
     const formData = new FormData();
@@ -42,7 +41,7 @@ export default function Product() {
     formData.append("photo", photo);
     console.log(formData);
     axios
-      .post("http://localhost:3060/products", formData, {
+      .post(process.env.REACT_APP_BACKEND_API_HOST + "products/", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

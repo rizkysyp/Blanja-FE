@@ -183,7 +183,9 @@ function EditProduct() {
   }, []);
 
   const getData = async () => {
-    const response = await axios.get(`http://localhost:3060/products/${id}`);
+    const response = await axios.get(
+      process.env.REACT_APP_BACKEND_API_HOST + `/products/edit/${id}`
+    );
     const data = await response.data.data;
     console.log();
     //insert data ke state
@@ -215,11 +217,15 @@ function EditProduct() {
     formData.append("photo", photo);
     console.log(formData);
     axios
-      .put(`http://localhost:3060/products/edit/${id}`, formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      })
+      .put(
+        process.env.REACT_APP_BACKEND_API_HOST + `/products/edit/${id}`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      )
       .then(() => {
         //redirect
         histori.push("/my-product");

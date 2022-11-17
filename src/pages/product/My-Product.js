@@ -45,7 +45,9 @@ function MyProducts() {
   console.log(process.env.REACT_APP_BACKEND_API_HOST);
   const deleteData = async (id) => {
     //sending
-    await axios.delete(`http://localhost:3060/products/${id}`);
+    await axios.delete(
+      process.env.REACT_APP_BACKEND_API_HOST + `/products/${id}`
+    );
 
     //panggil function "fetchData"
     fetchData();

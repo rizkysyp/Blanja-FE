@@ -38,7 +38,7 @@ export default function Profile() {
   const [data, setData] = useState([]);
   const { id } = useParams();
   //   const [startDate, setStartDate] = useState(new Date());
-  let users = `http://localhost:3060/products/${id}`;
+  let users = `{process.env.REACT_APP_BACKEND_API_HOST}/products/${id}`;
 
   useEffect(() => {
     getData();
@@ -48,7 +48,7 @@ export default function Profile() {
     let token = localStorage.getItem("token");
     console.log("my token", token);
     axios
-      .get(users, {
+      .get(process.env.REACT_APP_BACKEND_API_HOST + `/products/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
