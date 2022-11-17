@@ -38,7 +38,7 @@ function App() {
           <Route path="/insert-product" element={<Product />} />
           <Route path="/register-cust" element={<RegisterCust />} />
           {/* <Route path="/profile" element={<Profile />} /> */}
-          <Route path="/product-detail" element={<ProductDetail />} />
+          <Route path="/product-detail/:id" element={<ProductDetail />} />
           <Route path="/my-product/:id" element={<EditProduct />} />
           <Route path="/my-bag" element={<MyBag />} />
           <Route path="/profile" element={<Profile />} />

@@ -31,12 +31,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { getDefaultLocale } from "react-datepicker";
+import { useParams } from "react-router-dom";
 
 export default function Profile() {
   const { REACT_BACKEND_API_HOST } = process.env;
   const [data, setData] = useState([]);
+  const { id } = useParams();
   //   const [startDate, setStartDate] = useState(new Date());
-  let users = `http://localhost:3060/products/158`;
+  let users = `http://localhost:3060/products/${id}`;
 
   useEffect(() => {
     getData();

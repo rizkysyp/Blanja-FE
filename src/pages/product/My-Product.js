@@ -117,6 +117,16 @@ function MyProducts() {
                           >
                             Delete
                           </Button>
+
+                          <Button
+                            as={Link}
+                            to={`/product-detail/${hasil.id}`}
+                            variant="primary"
+                            size="sm"
+                            className="me-2"
+                          >
+                            Lihat
+                          </Button>
                         </td>
                       </tr>
                     ))}
