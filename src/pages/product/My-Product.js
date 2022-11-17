@@ -15,7 +15,7 @@ import profile from "../../image/kris.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 function MyProducts() {
   const [search, setSearch] = useState("");
-  const [sortBy, setSortBy] = useState("Price");
+  const [sortBy, setSortBy] = useState("name");
   const [sort, setSort] = useState("asc");
   const [Hasil, setHasil] = useState([]);
 
@@ -35,12 +35,12 @@ function MyProducts() {
 
   const fetchData = async () => {
     const response = await axios.get(
-      `http://localhost:3060/products/sort?search=${search}&sortby=name&sort=desc`
+      `http://localhost:3060/products/sort?search=${search}&sortby=${sortBy}&sort=${sort}`
     );
-    const data = await response.data.result;
+    const data = await response.data.data;
     setHasil(data);
-    console.log(Hasil, "data");
   };
+  console.log(Hasil, "data");
   const deleteData = async (id) => {
     //sending
     await axios.delete(`http://localhost:3060/products/${id}`);
