@@ -14,6 +14,7 @@ import axios from "axios";
 import profile from "../../image/kris.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 function MyProducts() {
+  const { REACT_BACKEND_API_HOST } = process.env;
   const [search, setSearch] = useState("");
   const [sortBy, setSortBy] = useState("name");
   const [sort, setSort] = useState("asc");
@@ -35,12 +36,13 @@ function MyProducts() {
 
   const fetchData = async () => {
     const response = await axios.get(
-      `http://localhost:3060/products/sort?search=${search}&sortby=${sortBy}&sort=${sort}`
+      process.env.REACT_APP_BACKEND_API_HOST +
+        `/products/sort?search=${search}&sortby=${sortBy}&sort=${sort}`
     );
     const data = await response.data.data;
     setHasil(data);
   };
-  console.log(Hasil, "data");
+  console.log(process.env.REACT_APP_BACKEND_API_HOST);
   const deleteData = async (id) => {
     //sending
     await axios.delete(`http://localhost:3060/products/${id}`);

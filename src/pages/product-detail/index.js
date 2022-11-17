@@ -27,11 +27,13 @@
 //   }
 //   );
 // }
+
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { getDefaultLocale } from "react-datepicker";
 
 export default function Profile() {
+  const { REACT_BACKEND_API_HOST } = process.env;
   const [data, setData] = useState([]);
   //   const [startDate, setStartDate] = useState(new Date());
   let users = `http://localhost:3060/products/158`;
