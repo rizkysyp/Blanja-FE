@@ -9,6 +9,7 @@ import RegisterCust from "./pages/register/customer";
 import EditProduct from "./pages/product/Edit";
 import ProductDetail from "./pages/product-detail";
 import MyBag from "./pages/Bag/";
+import Auth from "./pages/login/auth";
 import { BrowserRouter, Route, Link, Routes, Navigate } from "react-router-dom";
 import "react-datepicker/dist/react-datepicker.css";
 import AuthChecker from "./Component/AuthChecker";
@@ -28,6 +29,7 @@ function App() {
           <Link to="/register-seller"> Register Seller</Link>
           <Link to="/my-bag"> My Bag</Link>
           <Link to="/profile"> Profile</Link>
+          <Link to="/auth"> Profile</Link>
         </nav>
         <Routes>
           <Route path="/" element={<Navigate to="/login" />} />
@@ -42,6 +44,7 @@ function App() {
           <Route path="/my-product/:id" element={<EditProduct />} />
           <Route path="/my-bag" element={<MyBag />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/auth" element={<Auth />} />
         </Routes>
       </BrowserRouter>
     </div>

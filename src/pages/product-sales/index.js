@@ -41,7 +41,7 @@ export default function Product() {
     formData.append("photo", photo);
     console.log(formData);
     axios
-      .post(process.env.REACT_APP_BACKEND_API_HOST + "products/", formData, {
+      .post(process.env.REACT_APP_BACKEND_API_HOST + "/products", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

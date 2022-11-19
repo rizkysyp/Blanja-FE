@@ -24,11 +24,15 @@ export default function RegisterCust() {
 
     console.log(formData);
     axios
-      .post("http://localhost:3060/users/register", formData, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
+      .post(
+        process.env.REACT_APP_BACKEND_API_HOST + "/users/register",
+        formData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
       .then((res) => {
         console.log("input data success");
         console.log(res);

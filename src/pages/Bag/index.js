@@ -36,7 +36,10 @@ const myBag = () => {
                 </a>
               </div>
             </div>
-            <div className="card d-flex flex-row align-items-center">
+            <div
+              className="card d-flex flex-row align-items-center"
+              style={{ height: "107px" }}
+            >
               <div>
                 <input
                   class="form-check-input"
@@ -48,13 +51,18 @@ const myBag = () => {
               <div style={{ marginLeft: "15px" }}>
                 <img src={photo} className="rounded"></img>
               </div>
-              <div>
-                <p>a</p>
-                <p>as</p>
+              <div style={{ marginLeft: "15px" }}>
+                <p>
+                  Men's Formal suit - Black
+                  <p style={{ color: "#9B9B9B" }}>Zalora Cloth</p>
+                </p>
               </div>
             </div>
 
-            <div className="card d-flex flex-row align-items-center">
+            <div
+              className="card d-flex flex-row align-items-center"
+              style={{ height: "107px" }}
+            >
               <div>
                 <input
                   class="form-check-input"
@@ -66,9 +74,11 @@ const myBag = () => {
               <div style={{ marginLeft: "15px" }}>
                 <img src={photo} className="rounded"></img>
               </div>
-              <div>
-                <p>a</p>
-                <p>as</p>
+              <div style={{ marginLeft: "15px" }}>
+                <p>
+                  <p className="font-weight-bold">Men's Formal suit - Black</p>
+                  <p style={{ color: "#9B9B9B" }}>Zalora Cloth</p>
+                </p>
               </div>
             </div>
           </div>

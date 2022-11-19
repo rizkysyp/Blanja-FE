@@ -76,7 +76,7 @@ const NavbarGuest = () => {
   }, [user]);
   return (
     <div>
-      <div className="container-fluid shadow-lg bg-white">
+      <div className="container-fluid shadow-sm bg-white">
         <div className="container py-3">
           <div className="row align-items-center">
             <div className="col-2 d-flex align-items-center">
@@ -97,7 +97,13 @@ const NavbarGuest = () => {
             <div className="container col-4 d-flex align-items-center justify-content-end">
               {!isLogin && (
                 <div>
-                  <button className={"" + style.buttonLogin}>Login</button>
+                  <button
+                    className={"" + style.buttonLogin}
+                    component={Link}
+                    to="/login"
+                  >
+                    Login
+                  </button>
                   <button className={"" + style.buttonSignup}>Button</button>
                 </div>
               )}

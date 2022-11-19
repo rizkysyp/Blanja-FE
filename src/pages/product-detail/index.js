@@ -32,13 +32,12 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { getDefaultLocale } from "react-datepicker";
 import { useParams } from "react-router-dom";
-
+import NavbarGuest from "../../Component/Header/Navbar";
 export default function Profile() {
   const { REACT_BACKEND_API_HOST } = process.env;
   const [data, setData] = useState([]);
   const { id } = useParams();
   //   const [startDate, setStartDate] = useState(new Date());
-  let users = `{process.env.REACT_APP_BACKEND_API_HOST}/products/${id}`;
 
   useEffect(() => {
     getData();
@@ -82,15 +81,22 @@ export default function Profile() {
   return (
     <div>
       <div>
+        <NavbarGuest />
+      </div>
+      <div>
         {data.map((item, i) => {
           return (
             <div key={i} className="container">
               <p>Home about </p>
-              <div className="col-12 row">
+              <div className="container row">
                 <div className="col-6 row">
-                  <img src={item.photo}></img>
+                  <img
+                    src={item.photo}
+                    className=""
+                    style={{ width: "80%" }}
+                  ></img>
                 </div>
-                <div className="col-6">
+                <div className="col-6" style={{ marginLeft: "10px" }}>
                   <h3>{item.name}</h3>
                   <h7>{item.name}</h7>
                   <p className="mt-2">Price</p>
