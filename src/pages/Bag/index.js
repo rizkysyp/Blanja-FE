@@ -85,7 +85,10 @@ const myBag = () => {
 
           <div className="col-6">
             <div className="card kanan" style={{ marginLeft: "20px" }}>
-              sas
+              <h3>Shopping Summary</h3>
+              <div>
+                <div className="dlex"></div>
+              </div>
             </div>
           </div>
         </div>

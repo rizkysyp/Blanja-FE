@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fontsource/metropolis": "^4.5.3",
     "@reduxjs/toolkit": "^1.9.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -15,6 +16,7 @@
     "node-sass": "^7.0.3",
     "react": "^18.2.0",
     "react-bootstrap": "^2.6.0",
+    "react-circle-color-picker": "^1.0.9",
     "react-date-picker": "^9.1.0",
     "react-datepicker": "^4.8.0",
     "react-dom": "^18.2.0",
@@ -24,6 +26,7 @@
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.4.3",
     "react-scripts": "5.0.1",
+    "react-table-scrollbar": "^0.1.11",
     "redux": "^4.2.0",
     "redux-logger": "^3.0.6",
     "swiper": "^8.4.4",

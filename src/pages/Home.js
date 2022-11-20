@@ -15,7 +15,7 @@ export default function Home() {
       try {
         let result = await axios.get(
           process.env.REACT_APP_BACKEND_API_HOST +
-            `/products/sort?search=&sortby=&sort=`
+            `/products/sort?search=&sortby=&sort=&limit=10`
         );
         setData(result.data.data);
       } catch (error) {
@@ -39,36 +39,19 @@ export default function Home() {
           <div>
             <h3>New</h3>
           </div>
-          <div className="row bg-light mx-auto">
-            {data.map((item) => (
-              <div
-                className="card shadow-sm"
-                style={{ width: "208px", marginLeft: "13px" }}
-              >
-                {/* style={{ width: "10rem" }}> */}
-                <div className="d-flex justify-content-center">
-                  <img className={style.photo} src={item.photo}></img>
-                </div>
-                <p className="fs-2">{item.name}</p>
-                <p className="text-danger fs-3">Rp. {item.price}</p>
-                <p className="fs-6">(10)</p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
-
       <section>
         <div className="container mt-5">
           <div>
             <h3>Popular</h3>
           </div>
-          <div className="row bg-light mx-auto mt-5">
+          <div className="row mx-auto mt-5 gap-4">
             {data.map((item) => (
               <Card
                 className="card shadow-sm"
                 style={{
-                  width: "208px",
+                  width: "190px",
                   marginLeft: "13px",
                   textDecoration: "none",
                   color: "#000000",
@@ -80,8 +63,38 @@ export default function Home() {
                 <div className="d-flex justify-content-center">
                   <img className={style.photo} src={item.photo}></img>
                 </div>
-                <p className="fs-2">{item.name}</p>
-                <p className="text-danger fs-3">Rp. {item.price}</p>
+                <p className="fs-4">{item.name}</p>
+                <p className="text-danger fs-4">Rp. {item.price}</p>
+                <p className="fs-6">(10)</p>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section>
+        <div className="container mt-5">
+          <div>
+            <h3>Popular</h3>
+          </div>
+          <div className="row mx-auto mt-5 gap-4">
+            {data.map((item) => (
+              <Card
+                className="card shadow-sm"
+                style={{
+                  width: "190px",
+                  marginLeft: "13px",
+                  textDecoration: "none",
+                  color: "#000000",
+                }}
+                to={`/product-detail/${item.id}`}
+                as={Link}
+              >
+                {/* style={{ width: "10rem" }}> */}
+                <div className="d-flex justify-content-center">
+                  <img className={style.photo} src={item.photo}></img>
+                </div>
+                <p className="fs-4">{item.name}</p>
+                <p className="text-danger fs-4">Rp. {item.price}</p>
                 <p className="fs-6">(10)</p>
               </Card>
             ))}

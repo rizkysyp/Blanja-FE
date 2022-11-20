@@ -38,7 +38,7 @@ export default function RegisterSeller() {
         console.log(res);
       })
       .catch((err) => {
-        console.log("input data fail");
+       ("input data fail");
         console.log(err);
       });
   };

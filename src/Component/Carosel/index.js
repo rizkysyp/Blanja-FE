@@ -23,34 +23,6 @@ import { Pagination, Navigation } from "swiper";
 export default function App() {
   const [swiperRef, setSwiperRef] = useState(null);
 
-  let appendNumber = 4;
-  let prependNumber = 1;
-
-  const prepend2 = () => {
-    swiperRef.prependSlide([
-      '<div class="swiper-slide">Slide ' + --prependNumber + "</div>",
-      '<div class="swiper-slide">Slide ' + --prependNumber + "</div>",
-    ]);
-  };
-
-  const prepend = () => {
-    swiperRef.prependSlide(
-      '<div class="swiper-slide">Slide ' + --prependNumber + "</div>"
-    );
-  };
-
-  const append = () => {
-    swiperRef.appendSlide(
-      '<div class="swiper-slide">Slide ' + ++appendNumber + "</div>"
-    );
-  };
-
-  const append2 = () => {
-    swiperRef.appendSlide([
-      '<div class="swiper-slide">Slide ' + ++appendNumber + "</div>",
-      '<div class="swiper-slide">Slide ' + ++appendNumber + "</div>",
-    ]);
-  };
   return (
     <div className="container mt-4">
       <Swiper

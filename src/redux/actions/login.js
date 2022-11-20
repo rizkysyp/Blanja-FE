@@ -12,13 +12,14 @@ export const loginUser = (data, navigate) => async (dispact) => {
 
     localStorage.setItem("token", user.token);
     dispact({ type: "USER_LOGIN_SUCCESS", payload: user });
+    alert("Berhasil Login");
     navigate("/my-product");
   } catch (err) {
     if (err.response.status === 402) {
       alert("Kamu Belum Verfikasi Akunmu Silahkan Verifikasi");
       navigate("/auth");
     } else if (err.response.status === 404) {
-      alert("babik");
+      alert("Password atau email yang kamu masukan salah");
     }
   }
 };
