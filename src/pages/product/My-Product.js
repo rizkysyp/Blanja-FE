@@ -12,6 +12,8 @@ import {
 } from "react-bootstrap";
 import axios from "axios";
 import TableScrollbar from "react-table-scrollbar";
+import NotFound from "../../Component/404";
+import { useSelector } from "react-redux";
 
 import profile from "../../image/kris.png";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -21,6 +23,7 @@ function MyProducts() {
   const [sortBy, setSortBy] = useState("price");
   const [sort, setSort] = useState("asc");
   const [Hasil, setHasil] = useState([]);
+  const [isLogin, setIsLogin] = useState(false);
 
   useEffect(() => {
     //panggil method "fetchData"
@@ -58,15 +61,16 @@ function MyProducts() {
   useEffect(() => {
     fetchData();
   }, [search, sortBy, sort]);
+
+  const user = useSelector((state) => state.user.user);
   return (
     <div>
       <header>
         <NavbarGuest />
       </header>
 
-      <aside className="col-3 h-100 bg-white row d-flex">as</aside>
       <main>
-        <div className="container col-9">
+        <div className="container col-9 mt-5">
           <Container className="container col-9 offset-3">
             <Card className="card-body">
               <h5>

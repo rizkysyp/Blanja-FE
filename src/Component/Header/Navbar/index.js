@@ -7,7 +7,7 @@ import Filter from "../../../icon/Filter.svg";
 import Cart from "../../../icon/cart.png";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-
+import Login from "../../../pages/login/Login";
 // export default class NavbarGuest extends Component {
 //   render() {
 //     return (
@@ -66,7 +66,8 @@ const NavbarGuest = () => {
   useEffect(() => {
     if (user.role === "toko") {
       setIsLogin(true);
-      setWhoIsLogin("toko");
+    } else if (user.role === "customer") {
+      setIsLogin(true);
     }
   }, []);
   console.log(isLogin);
@@ -97,14 +98,13 @@ const NavbarGuest = () => {
             <div className="container col-4 d-flex align-items-center justify-content-end">
               {!isLogin && (
                 <div>
-                  <button
-                    className={"" + style.buttonLogin}
-                    component={Link}
-                    to="/login"
-                  >
-                    Login
-                  </button>
-                  <button className={"" + style.buttonSignup}>Button</button>
+                  <Link to="/login">
+                    <button className={"" + style.buttonLogin}>Login</button>
+                  </Link>
+
+                  <Link to="/register-seller">
+                    <button className={"" + style.buttonSignup}>Sign Up</button>
+                  </Link>
                 </div>
               )}
               {isLogin && (

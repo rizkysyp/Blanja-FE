@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Container, Card, Button, Col, Row, Form } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./seller.css";
@@ -35,11 +36,18 @@ export default function RegisterSeller() {
       )
       .then((res) => {
         console.log("input data success");
+        alert(
+          "Register Berhasil,Silahkan Check Email untuk melihat Kode Verifikasi anda"
+        );
+
         console.log(res);
       })
       .catch((err) => {
-       ("input data fail");
         console.log(err);
+        if (err.response.status === 404) {
+          alert("email already exist");
+          console.log(err);
+        }
       });
   };
 
@@ -111,6 +119,7 @@ export default function RegisterSeller() {
               />
               <label>Role</label>
             </div>
+
             <Button className="btn btn-login btn-danger" type="submit">
               Register
             </Button>

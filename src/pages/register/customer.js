@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { Container, Card, Button, Col, Row, Form } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./customer.css";
@@ -35,6 +35,10 @@ export default function RegisterCust() {
       )
       .then((res) => {
         console.log("input data success");
+        alert(
+          "Register Berhasil,Silahkan Check Email untuk melihat Kode Verifikasi anda"
+        );
+        Navigate("/auth");
         console.log(res);
       })
       .catch((err) => {

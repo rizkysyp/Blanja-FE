@@ -12,7 +12,8 @@ import {
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import NavbarGuest from "../../Component/Header/Navbar";
-
+import { useSelector } from "react-redux";
+import NotFound from "../../Component/404";
 // function EditProduct() {
 //   //bikin state
 
@@ -162,6 +163,7 @@ import NavbarGuest from "../../Component/Header/Navbar";
 
 function EditProduct() {
   //bikin state
+  const [isLogin, setIsLogin] = useState(false);
   const [photo, setPhoto] = useState(null);
   const [inputData, setInputData] = useState({
     name: "",
@@ -245,82 +247,97 @@ function EditProduct() {
       [e.target.name]: e.target.value,
     });
   };
+
+  const user = useSelector((state) => state.user.user);
+
+  useEffect(() => {
+    if (user.role === "toko") {
+      setIsLogin(true);
+    } else {
+      setIsLogin(false);
+    }
+  });
   return (
     <div>
       <div>
         <NavbarGuest />
       </div>
-      <Container>
-        <Row>
-          <Card>
-            <Card.Body>
-              {validation.errors && (
-                <Alert variant="danger">
-                  <ul>
-                    {validation.errors.map((error, index) => (
-                      <li key={index}>{`${error.param} : ${error.msg}`}</li>
-                    ))}
-                  </ul>
-                </Alert>
-              )}
-              <Form onSubmit={updateData}>
-                <Form.Group className="mb-3" controlId="name">
-                  <Form.Label>Name</Form.Label>
-                  <Form.Control
-                    name="name"
-                    type="text"
-                    value={inputData.name}
-                    onChange={handleChange}
-                    placeholder="Masukkan Title"
-                  />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="priceStock">
-                  <Form.Label>Price</Form.Label>
-                  <Form.Control
-                    name="price"
-                    type="number"
-                    value={inputData.price}
-                    onChange={handleChange}
-                    placeholder="Masukan Harga"
-                  />
-                  <Form.Label>Stock</Form.Label>
-                  <Form.Control
-                    name="stock"
-                    type="number"
-                    value={inputData.stock}
-                    onChange={handleChange}
-                    placeholder="Masukan Harga"
-                  />
-                </Form.Group>
 
-                <Form.Group className="mb-3" controlId="category">
-                  <Form.Label>Category</Form.Label>
-                  <Form.Control
-                    name="category"
-                    type="number"
-                    value={inputData.category_id}
-                    onChange={handleChange}
-                    placeholder="Masukkan Title"
-                  />
-                </Form.Group>
+      {isLogin && (
+        <Container>
+          <Row>
+            <Card>
+              <Card.Body>
+                {validation.errors && (
+                  <Alert variant="danger">
+                    <ul>
+                      {validation.errors.map((error, index) => (
+                        <li key={index}>{`${error.param} : ${error.msg}`}</li>
+                      ))}
+                    </ul>
+                  </Alert>
+                )}
+                <Form onSubmit={updateData}>
+                  <Form.Group className="mb-3" controlId="name">
+                    <Form.Label>Name</Form.Label>
+                    <Form.Control
+                      name="name"
+                      type="text"
+                      value={inputData.name}
+                      onChange={handleChange}
+                      placeholder="Masukkan Title"
+                    />
+                  </Form.Group>
+                  <Form.Group className="mb-3" controlId="priceStock">
+                    <Form.Label>Price</Form.Label>
+                    <Form.Control
+                      name="price"
+                      type="number"
+                      value={inputData.price}
+                      onChange={handleChange}
+                      placeholder="Masukan Harga"
+                    />
+                    <Form.Label>Stock</Form.Label>
+                    <Form.Control
+                      name="stock"
+                      type="number"
+                      value={inputData.stock}
+                      onChange={handleChange}
+                      placeholder="Masukan Harga"
+                    />
+                  </Form.Group>
 
-                <Form.Group className="mb-3" controlId="photo">
-                  <Form.Label>Category</Form.Label>
-                  <Form.Control
-                    type="file"
-                    onChange={handlePhoto}
-                    placeholder="Masukkan Title"
-                  />
-                </Form.Group>
+                  <Form.Group className="mb-3" controlId="category">
+                    <Form.Label>Category</Form.Label>
+                    <Form.Control
+                      name="category"
+                      type="number"
+                      value={inputData.category_id}
+                      onChange={handleChange}
+                      placeholder="Masukkan Title"
+                    />
+                  </Form.Group>
 
-                <Button variant="primary" type="submit">
-                  UPDATE
-                </Button>
-              </Form>
-            </Card.Body>
-          </Card>
-        </Row>
-      </Container>
+                  <Form.Group className="mb-3" controlId="photo">
+                    <Form.Label>Category</Form.Label>
+                    <Form.Control
+                      type="file"
+                      onChange={handlePhoto}
+                      placeholder="Masukkan Title"
+                    />
+                  </Form.Group>
+
+                  <Button variant="primary" type="submit">
+                    UPDATE
+                  </Button>
+                </Form>
+              </Card.Body>
+            </Card>
+          </Row>
+        </Container>
+      )}
+
+      {!isLogin && <NotFound />}
     </div>
   );
 }

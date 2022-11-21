@@ -31,10 +31,10 @@ const Auth = () => {
       })
       .then((res) => {
         alert("Verif Success, You Can Login");
-        Navigate("/login");
         console.log(res);
       })
       .catch((err) => {
+        console.log(err);
         alert("OTPMU Salah");
       });
   };

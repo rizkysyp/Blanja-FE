@@ -1,6 +1,6 @@
 import axios from "axios";
 import { Next } from "react-bootstrap/esm/PageItem";
-
+import { Navigate } from "react-router-dom";
 export const loginUser = (data, navigate) => async (dispact) => {
   try {
     dispact({ type: "USER_LOGIN_PENDING" });
@@ -16,7 +16,7 @@ export const loginUser = (data, navigate) => async (dispact) => {
     navigate("/my-product");
   } catch (err) {
     if (err.response.status === 402) {
-      alert("Kamu Belum Verfikasi Akunmu Silahkan Verifikasi");
+      alert("Kamu Belum Verfikasi Akunmu,Silahkan Verifikasi terlebih dahulu");
       navigate("/auth");
     } else if (err.response.status === 404) {
       alert("Password atau email yang kamu masukan salah");
