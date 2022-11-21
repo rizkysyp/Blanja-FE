@@ -11,7 +11,7 @@ import {
   Navbar,
 } from "react-bootstrap";
 import axios from "axios";
-import TableScrollbar from "react-table-scrollbar";
+// import TableScrollbar from "react-table-scrollbar";
 import NotFound from "../../Component/404";
 import { useSelector } from "react-redux";
 
@@ -187,59 +187,59 @@ function MyProducts() {
                   <hr></hr>
 
                   <Card>
-                    <TableScrollbar rows={8}>
-                      <Table striped responsive className="mb-1">
-                        <thead className="table-light">
-                          <tr>
-                            <th>No</th>
-                            <th>Name Producs</th>
-                            <th>Price</th>
-                            <th>Category Name</th>
-                            <th>Stock</th>
-                            <th></th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {Hasil.map((hasil, index) => (
-                            <tr key={hasil.id}>
-                              <td>{index + 1}</td>
-                              <td>{hasil.name}</td>
-                              <td>{hasil.price}</td>
-                              <td>{hasil.category}</td>
-                              <td>{hasil.stock}</td>
-                              <td>
-                                <Button
-                                  as={Link}
-                                  to={`/my-product/${hasil.id}`}
-                                  variant="primary"
-                                  size="sm"
-                                  className="me-2"
-                                >
-                                  EDIT
-                                </Button>
-                                <Button
-                                  onClick={() => deleteData(hasil.id)}
-                                  variant="danger"
-                                  size="md"
-                                >
-                                  Delete
-                                </Button>
+                    {/* <TableScrollbar rows={8}> */}
+                    <Table striped responsive className="mb-1">
+                      <thead className="table-light">
+                        <tr>
+                          <th>No</th>
+                          <th>Name Producs</th>
+                          <th>Price</th>
+                          <th>Category Name</th>
+                          <th>Stock</th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {Hasil.map((hasil, index) => (
+                          <tr key={hasil.id}>
+                            <td>{index + 1}</td>
+                            <td>{hasil.name}</td>
+                            <td>{hasil.price}</td>
+                            <td>{hasil.category}</td>
+                            <td>{hasil.stock}</td>
+                            <td>
+                              <Button
+                                as={Link}
+                                to={`/my-product/${hasil.id}`}
+                                variant="primary"
+                                size="sm"
+                                className="me-2"
+                              >
+                                EDIT
+                              </Button>
+                              <Button
+                                onClick={() => deleteData(hasil.id)}
+                                variant="danger"
+                                size="md"
+                              >
+                                Delete
+                              </Button>
 
-                                <Button
-                                  as={Link}
-                                  to={`/product-detail/${hasil.id}`}
-                                  variant="primary"
-                                  size="sm"
-                                  className="me-2"
-                                >
-                                  Lihat
-                                </Button>
-                              </td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </Table>
-                    </TableScrollbar>
+                              <Button
+                                as={Link}
+                                to={`/product-detail/${hasil.id}`}
+                                variant="primary"
+                                size="sm"
+                                className="me-2"
+                              >
+                                Lihat
+                              </Button>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </Table>
+                    {/* </TableScrollbar> */}
                   </Card>
                 </div>
                 <div
