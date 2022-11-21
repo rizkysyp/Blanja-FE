@@ -26,7 +26,6 @@
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.4.3",
     "react-scripts": "5.0.1",
-    "react-table-scrollbar": "^0.1.11",
     "redux": "^4.2.0",
     "redux-logger": "^3.0.6",
     "swiper": "^8.4.4",
