@@ -66,7 +66,7 @@ const DetailOrder = () => {
       </div>
       <div className="container-fluid bg-new">
         <div className="container py-3">
-          <h1 className="myfont text-title">Product</h1>
+          <h1>Product</h1>
           <div className="container col-12 row py-3">
             <div className="col col-8 row">
               <div className="container col-12 row py-3">
@@ -79,9 +79,7 @@ const DetailOrder = () => {
                     />
                   </div>
                   <div className="col-4">
-                    <h2 className="myfont3 color-font">
-                      {checkout.product_name}
-                    </h2>
+                    <h2>{checkout.product_name}</h2>
                   </div>
                   <div className="col-4 row d-flex justify-align-center">
                     <h2>Quantity</h2>
@@ -100,9 +98,7 @@ const DetailOrder = () => {
                 </div>
                 <div className="row pt-3">
                   <div className="col-6">
-                    <h6 className="myfont3" style={{ color: "#9B9B9B" }}>
-                      Pembeli
-                    </h6>
+                    <h6 style={{ color: "#9B9B9B" }}>Pembeli</h6>
                   </div>
                   <div className="col-3 offset-3">
                     <h5>{checkout.username}</h5>
@@ -110,19 +106,15 @@ const DetailOrder = () => {
                 </div>
                 <div className="row">
                   <div className="col-6">
-                    <h6 className="myfont3" style={{ color: "#9B9B9B" }}>
-                      Address
-                    </h6>
+                    <h6 style={{ color: "#9B9B9B" }}>Address</h6>
                   </div>
                   <div className="col-3 offset-3">
-                    <h6 className="myfont">{checkout.alamat}</h6>
+                    <h6>{checkout.alamat}</h6>
                   </div>
                 </div>
                 <div className="row">
                   <div className="col-6">
-                    <h6 className="myfont3" style={{ color: "#9B9B9B" }}>
-                      Status
-                    </h6>
+                    <h6 style={{ color: "#9B9B9B" }}>Status</h6>
                   </div>
                   <div className="col-3 offset-3">
                     {checkout.status === 0 ? (
@@ -134,7 +126,6 @@ const DetailOrder = () => {
                     ) : (
                       <h6>Terkirim</h6>
                     )}
-                    {/* <h6 className="myfont">{checkout.status === 0 ? }</h6> */}
                   </div>
                 </div>
 
@@ -145,12 +136,10 @@ const DetailOrder = () => {
                 </div>
                 <div className="row">
                   <div className="col-6">
-                    <h6 className="myfont" style={{ color: "black" }}>
-                      Total
-                    </h6>
+                    <h6 style={{ color: "black" }}>Total</h6>
                   </div>
                   <div className="col-3 offset-3">
-                    <h6 className="myfont text-danger">Rp.{checkout.total}</h6>
+                    <h6 className="text-danger">Rp.{checkout.total}</h6>
                   </div>
                 </div>
               </div>

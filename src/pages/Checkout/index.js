@@ -66,7 +66,7 @@ const Checkout = () => {
       </div>
       <div className="container-fluid bg-new">
         <div className="container py-3">
-          <h1 className="myfont text-title">Payment</h1>
+          <h1>Payment</h1>
           <div className="container col-12 row py-3">
             <div className="col col-8 row">
               <div className="container col-12 row py-3">
@@ -75,7 +75,7 @@ const Checkout = () => {
                     <img src={gopay} alt="" className="bag-product" />
                   </div>
                   <div className="col-4">
-                    <h2 className="myfont3 color-font">Gopay</h2>
+                    <h2>Gopay</h2>
                   </div>
                   <div className="col col-2 offset-4">
                     <input
@@ -93,7 +93,7 @@ const Checkout = () => {
                     <img src={pos} alt="" className="bag-product" />
                   </div>
                   <div className="col-4">
-                    <h2 className="myfont3 color-font">Pos</h2>
+                    <h2>Pos</h2>
                   </div>
                   <div className="col col-2 offset-4">
                     <input
@@ -111,7 +111,7 @@ const Checkout = () => {
                     <img src={cc} alt="" className="bag-product" />
                   </div>
                   <div className="col-4">
-                    <h2 className="myfont3 color-font">Visa</h2>
+                    <h2>Visa</h2>
                   </div>
                   <div className="col col-2 offset-4">
                     <input
@@ -130,28 +130,22 @@ const Checkout = () => {
                 style={{ backgroundColor: "white" }}
               >
                 <div className="col col-12">
-                  <h6 className="myfont" style={{ color: "black" }}>
-                    Shopping Summary
-                  </h6>
+                  <h6>Shopping Summary</h6>
                 </div>
                 <div className="row pt-3">
                   <div className="col-6">
-                    <h6 className="myfont3" style={{ color: "#9B9B9B" }}>
-                      Order
-                    </h6>
+                    <h6 style={{ color: "#9B9B9B" }}>Order</h6>
                   </div>
                   <div className="col-3 offset-3">
-                    <h6 className="myfont">Rp.{checkout.total}</h6>
+                    <h6>Rp.{checkout.total}</h6>
                   </div>
                 </div>
                 <div className="row">
                   <div className="col-6">
-                    <h6 className="myfont3" style={{ color: "#9B9B9B" }}>
-                      Delivery
-                    </h6>
+                    <h6 style={{ color: "#9B9B9B" }}>Delivery</h6>
                   </div>
                   <div className="col-3 offset-3">
-                    <h6 className="myfont">Rp.0</h6>
+                    <h6>Rp.0</h6>
                   </div>
                 </div>
                 <div className="row">
@@ -161,12 +155,10 @@ const Checkout = () => {
                 </div>
                 <div className="row">
                   <div className="col-6">
-                    <h6 className="myfont" style={{ color: "black" }}>
-                      Shopping summary
-                    </h6>
+                    <h6 style={{ color: "black" }}>Shopping summary</h6>
                   </div>
                   <div className="col-3 offset-3">
-                    <h6 className="myfont text-danger">Rp.{checkout.total}</h6>
+                    <h6 className="text-danger">Rp.{checkout.total}</h6>
                   </div>
                 </div>
                 <div className="row align-items-center py-3">
