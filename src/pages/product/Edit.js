@@ -9,6 +9,7 @@ import {
   Form,
   Alert,
 } from "react-bootstrap";
+import Swal from "sweetalert2";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import NavbarGuest from "../../Component/Header/Navbar";
@@ -166,10 +167,10 @@ function EditProduct() {
   const [isLogin, setIsLogin] = useState(false);
   const [photo, setPhoto] = useState(null);
   const [inputData, setInputData] = useState({
-    name: "",
+    product_name: "",
     stock: "",
     price: "",
-    category_id: "1",
+    category: "",
   });
   //set parameter
   const { id } = useParams();
@@ -211,16 +212,17 @@ function EditProduct() {
 
   const updateData = (hasil) => {
     hasil.preventDefault();
+
     const formData = new FormData();
-    formData.append("name", inputData.name);
+    formData.append("product_name", inputData.product_name);
     formData.append("stock", inputData.stock);
     formData.append("price", inputData.price);
-    formData.append("category_id", inputData.category_id);
+    formData.append("category", inputData.category);
     formData.append("photo", photo);
     console.log(formData);
     axios
       .put(
-        process.env.REACT_APP_BACKEND_API_HOST + `/products/edit/${id}`,
+        process.env.REACT_APP_BACKEND_API_HOST + `/products/${id}`,
         formData,
         {
           headers: {
@@ -230,7 +232,8 @@ function EditProduct() {
       )
       .then(() => {
         //redirect
-        histori.push("/my-product");
+        Swal.fire("Good job!", "You clicked the button!", "success");
+        histori("/my-product");
       })
       .catch((error) => {
         //assign validation on state
@@ -281,9 +284,9 @@ function EditProduct() {
                   <Form.Group className="mb-3" controlId="name">
                     <Form.Label>Name</Form.Label>
                     <Form.Control
-                      name="name"
+                      name="product_name"
                       type="text"
-                      value={inputData.name}
+                      value={inputData.product_name}
                       onChange={handleChange}
                       placeholder="Masukkan Title"
                     />
@@ -311,8 +314,8 @@ function EditProduct() {
                     <Form.Label>Category</Form.Label>
                     <Form.Control
                       name="category"
-                      type="number"
-                      value={inputData.category_id}
+                      type="text"
+                      value={inputData.category}
                       onChange={handleChange}
                       placeholder="Masukkan Title"
                     />

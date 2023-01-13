@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import NavbarGuest from "../Component/Header/Navbar";
-import style from "../pages/Home/style.module.css";
+import NavbarGuest from "../../Component/Header/Navbar";
+import style from "./style.module.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Container, Row, Col, Card } from "react-bootstrap";
-import Carousel from "../Component/Carosel";
+import Trends from "../../Component/Carosel/Trends/trends";
+import Category from "../../Component/Carosel/Category/category";
 import { Link } from "react-router-dom";
+import Cards from "../../Component/Card/card";
 
 export default function Home() {
   const [data, setData] = useState([]);
@@ -15,7 +17,7 @@ export default function Home() {
       try {
         let result = await axios.get(
           process.env.REACT_APP_BACKEND_API_HOST +
-            `/products/sort?search=&sortby=&sort=&limit=10`
+            `/products?search=&sortby=&sort=&limit=10`
         );
         setData(result.data.data);
       } catch (error) {
@@ -31,7 +33,10 @@ export default function Home() {
         <NavbarGuest />
       </header>
       <section>
-        <Carousel />
+        <Trends />
+      </section>
+      <section>
+        <Category />
       </section>
       <div>buat carosel</div>
       <section>
@@ -44,7 +49,7 @@ export default function Home() {
       <section>
         <div className="container mt-5">
           <div>
-            <h3>Popular</h3>
+            <h3>New</h3>
           </div>
           <div className="row mx-auto mt-5 gap-4">
             {data.map((item) => (

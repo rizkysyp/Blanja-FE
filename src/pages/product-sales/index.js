@@ -5,18 +5,17 @@ import NavbarGuest from "../../Component/Header/Navbar";
 import Sidebar from "../../Component/Header/Sidebar";
 import { useSelector } from "react-redux";
 import NotFound from "../../Component/404";
-// Auth
+import Swal from "sweetalert2";
 
-//End Of Auth
 export default function Product() {
   const [isLogin, setIsLogin] = useState(false);
   const [data, setData] = useState([]);
   const [photo, setPhoto] = useState(null);
   const [inputData, setInputData] = useState({
-    name: "",
+    product_name: "",
     stock: "",
     price: "",
-    category_id: "1",
+    category: "",
   });
 
   // let users = "http://localhost:3060/products/";
@@ -34,23 +33,25 @@ export default function Product() {
   //     });
   // }, []);
   const postForm = (e) => {
+    const token = localStorage.getItem("token");
     e.preventDefault();
     const formData = new FormData();
-    formData.append("name", inputData.name);
+    formData.append("product_name", inputData.product_name);
     formData.append("stock", inputData.stock);
     formData.append("price", inputData.price);
-    formData.append("category_id", inputData.category_id);
+    formData.append("category", inputData.category);
     formData.append("photo", photo);
     console.log(formData);
     axios
       .post(process.env.REACT_APP_BACKEND_API_HOST + "/products", formData, {
+        "content-type": "multipart/form-data",
         headers: {
-          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${token}`,
         },
       })
       .then((res) => {
         console.log("input data success");
-        console.log(res);
+        Swal.fire("Success", "Input Product Success", "success");
       })
       .catch((err) => {
         console.log("input data fail");
@@ -92,9 +93,7 @@ export default function Product() {
             onSubmit={postForm}
             className="container col-12 row flew-row justfity-content-center"
           >
-            <div className="col-4">
-              <Sidebar />
-            </div>
+            <div className="col-4"></div>
             <div className="col-8">
               <div className="card mb-4 " style={{ width: "40rem" }}>
                 <div className="card-body">
@@ -103,8 +102,16 @@ export default function Product() {
                   <p>Name of goods</p>
                   <input
                     type="text"
-                    value={inputData.name}
-                    name="name"
+                    value={inputData.product_name}
+                    name="product_name"
+                    onChange={handleChange}
+                    placeHolder="name Your Products"
+                  />
+                  <p className="mt-3">Category</p>
+                  <input
+                    type="text"
+                    value={inputData.category}
+                    name="category"
                     onChange={handleChange}
                     placeHolder="name Your Products"
                   />

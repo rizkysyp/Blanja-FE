@@ -10,6 +10,7 @@ import { loginUser } from "../../redux/actions/login";
 import axios from "axios";
 
 const Auth = () => {
+  const navigate = useNavigate();
   const [data, setData] = useState([]);
   const [inputData, setInputData] = useState({
     email: "",
@@ -24,14 +25,18 @@ const Auth = () => {
 
     console.log(formData);
     axios
-      .post(process.env.REACT_APP_BACKEND_API_HOST + "/users/verif", formData, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
+      .post(
+        process.env.REACT_APP_BACKEND_API_HOST + "/users/verification",
+        formData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
       .then((res) => {
         alert("Verif Success, You Can Login");
-        console.log(res);
+        navigate("/login");
       })
       .catch((err) => {
         console.log(err);

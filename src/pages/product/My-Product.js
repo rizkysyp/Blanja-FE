@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import NavbarGuest from "../../Component/Header/Navbar";
+import Swal from "sweetalert2";
 import {
   Card,
   Container,
@@ -11,11 +12,11 @@ import {
   Navbar,
 } from "react-bootstrap";
 import axios from "axios";
+import Sidebar from "../../Component/Sidebar/Seller";
 // import TableScrollbar from "react-table-scrollbar";
 import NotFound from "../../Component/404";
 import { useSelector } from "react-redux";
 
-import profile from "../../image/kris.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 function MyProducts() {
   const { REACT_BACKEND_API_HOST } = process.env;
@@ -24,25 +25,12 @@ function MyProducts() {
   const [sort, setSort] = useState("asc");
   const [Hasil, setHasil] = useState([]);
   const [isLogin, setIsLogin] = useState(false);
-
-  useEffect(() => {
-    //panggil method "fetchData"
-    fetchData();
-  }, []);
-
-  // const fetchData = async () => {
-  //   const response = await axios.get("http://localhost:3060/products");
-
-  //   const data = await response.data.data;
-  //   console.log(data, "hasil");
-
-  //   setHasil(data);
-  // };
+  const [data, setData] = useState();
+  const token = localStorage.getItem("token");
 
   const fetchData = async () => {
     const response = await axios.get(
-      process.env.REACT_APP_BACKEND_API_HOST +
-        `/products/sort?search=${search}&sortby=${sortBy}&sort=${sort}`
+      process.env.REACT_APP_BACKEND_API_HOST + `/products?search=${search}`
     );
     const data = await response.data.data;
     setHasil(data);
@@ -51,9 +39,14 @@ function MyProducts() {
   const deleteData = async (id) => {
     //sending
     await axios.delete(
-      process.env.REACT_APP_BACKEND_API_HOST + `/products/${id}`
+      process.env.REACT_APP_BACKEND_API_HOST + `/products/${id}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
     );
-
+    Swal.fire("Good job!", "Delete Sukses", "success");
     //panggil function "fetchData"
     fetchData();
   };

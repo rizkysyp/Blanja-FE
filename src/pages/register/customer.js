@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./customer.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
+import Swal from "sweetalert2";
 export default function RegisterCust() {
   const [data, setData] = useState([]);
   const [inputData, setInputData] = useState({
@@ -35,9 +35,7 @@ export default function RegisterCust() {
       )
       .then((res) => {
         console.log("input data success");
-        alert(
-          "Register Berhasil,Silahkan Check Email untuk melihat Kode Verifikasi anda"
-        );
+        Swal.fire("Success", "Berhasil Register!", "success");
         Navigate("/auth");
         console.log(res);
       })

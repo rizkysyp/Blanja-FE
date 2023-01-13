@@ -23,7 +23,7 @@ const Login = () => {
       email,
       password,
     };
-    dispatch(loginUser(data, navigate));
+    dispatch(loginUser(data, navigate("/")));
   };
   return (
     <div>

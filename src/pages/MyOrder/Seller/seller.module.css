@@ -1,0 +1,211 @@
+.imgProfile {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  .body {
+    background: red;
+  }
+  .imgProfile img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  .profile h4 {
+    position: relative;
+    bottom: 95px;
+    left: 100px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 24px;
+    color: #222222;
+  }
+  
+  .profile p {
+    position: relative;
+    bottom: 95px;
+    left: 100px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 24px;
+    color: red;
+    cursor: pointer;
+  }
+  
+  .box1 .bgBox1 {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #456bf3;
+    margin-left: 15px;
+  }
+  
+  .bgBox1 img {
+    height: 60%;
+    width: 60%;
+    margin-left: 6px;
+    /* object-fit: cover; */
+  }
+  
+  .box2 .bgBox2 {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #f36f45;
+    margin-left: 15px;
+  }
+  
+  .bgBox2 img {
+    height: 60%;
+    width: 60%;
+    margin-left: 6px;
+  }
+  
+  .box3 .bgBox3 {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #f3456f;
+    margin-left: 15px;
+  }
+  
+  .box3 img {
+    height: 60%;
+    width: 60%;
+    margin-left: 5px;
+    /* margin-bottom: 55px; */
+    /* object-fit: cover; */
+  }
+  
+  aside .box3 {
+    /* position: relative; */
+    bottom: 130px;
+  }
+  
+  aside {
+    margin-top: 30px;
+  }
+  aside .box1 h3 {
+    position: relative;
+    bottom: 25px;
+    left: 50px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 24px;
+    color: #9b9b9b;
+  }
+  
+  aside .box2 img {
+    position: relative;
+    left: 0px;
+  }
+  
+  aside .box2 h3 {
+    position: relative;
+    bottom: 25px;
+    left: 50px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 24px;
+    color: #9b9b9b;
+  }
+  
+  aside .box2 p {
+    position: relative;
+    /* bottom: 50px; */
+    left: 20px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 24px;
+    color: #9b9b9b;
+  }
+  
+  aside .box3 h3 {
+    position: relative;
+    bottom: 25px;
+    left: 50px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 24px;
+    color: #9b9b9b;
+  }
+  
+  .mainorder {
+    width: 700px;
+    height: 550px;
+    position: absolute;
+    left: 310px;
+    top: 90px;
+    padding: 30px;
+    background: #ffffff;
+    border: 1px solid #9b9b9b;
+    border-radius: 4px;
+    margin-top: 50px;
+    margin-left: 100px;
+  }
+  
+  .mainorder h1 {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+    color: #222222;
+  }
+  
+  .contentTable {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .contentTable thead tr {
+    background-color: #db3022;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+  }
+  
+  .contentTable th,
+  .contentTable td {
+    padding: 12px 15px;
+  }
+  
+  .contentTable tbody tr {
+    border-bottom: 1px solid #dddddd;
+    background-color: #f5f5f5;
+  }
+  
+  .contentTable tbody tr:nth-of-type(even) {
+    background-color: #f5f5f5;
+  }
+  
+  .contentTable tbody tr:last-of-type {
+    border-bottom: 2px solid #db3022;
+  }
+  
+  .btnPagination button {
+    width: 30px;
+    height: 30px;
+    margin-left: 5px;
+    background: #db3022;
+    color: #fff;
+    font-weight: 800px;
+    border-radius: 5px;
+  }
+  
+  .btnAction {
+    margin-right: 10px;
+  }
+  
+  .linkto {
+    text-decoration: none;
+  }
+  

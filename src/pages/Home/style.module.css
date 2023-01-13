@@ -2,3 +2,17 @@
   width: 230px;
   height: 136px;
 }
+
+.link {
+  text-decoration: none;
+}
+.sliderImage {
+  margin-right: 20px;
+  width: 206px !important;
+  height: 220px;
+  border-radius: 5px;
+}
+
+button.slick-next.slick-arrow {
+  right: 5%;
+}
