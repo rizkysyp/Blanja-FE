@@ -28,7 +28,6 @@
     "react-router-dom": "^6.4.3",
     "react-scripts": "5.0.1",
     "react-slick": "^0.29.0",
-    "react-table-scrollbar": "^0.1.11",
     "redux": "^4.2.0",
     "redux-logger": "^3.0.6",
     "slick-carousel": "^1.8.1",
