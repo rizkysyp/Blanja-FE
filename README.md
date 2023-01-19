@@ -84,7 +84,7 @@ Contributions are what make the open source community such an amazing place to b
 ## Screenshot
 | Login Page | Register Page |
 | ------------- | ------------- |
-| ![login](/screenshot/login.png?raw=true " ") | ![register](/screenshot/register.png?raw=true " ") |
+| ![login](/screenshot/login.png?raw=true " ") | ![register](/screenshot/Register.png?raw=true " ") |
 
 | My Bag | Checkout |
 | ------------- | ------------- |
