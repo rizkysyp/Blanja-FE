@@ -65,7 +65,7 @@ npm install
 ```
 3. Add .env file at root folder project, and add following
 ```sh
-REACT_APP_BACKEND_API = https://blanja-restapi.herokuapp.com/ // or use your own
+REACT_APP_BACKEND_API = api-blanja.rizkyproject.my.id/ // or use your own
 
 ```
 
