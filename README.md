@@ -98,6 +98,10 @@ Contributions are what make the open source community such an amazing place to b
 | ------------- | ------------- |
 | ![profile](/screenshot/detailproduct.png?raw=true " ") | ![detailorder](/screenshot/detailorder.png?raw=true " ") |
 
+| Add Product | Edit Product |
+| ------------- | ------------- |
+| ![addproduct](/screenshot/addproduct.png?raw=true " ") | ![editproduct](/screenshot/editproduct.png?raw=true " ") |
+
 | Home |
 | ------------- |
 | ![home](/screenshot/home.png?raw=true " ") |
